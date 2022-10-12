@@ -1,3 +1,4 @@
+#include "libft.h"
 void ft_bzero(void *s, size_t n)
 {
     //cast from void* to char*
@@ -5,8 +6,8 @@ void ft_bzero(void *s, size_t n)
     //fill write n zeroed bytes to the string s
     while(n > 0)
     {
-        *s = '\0';
-        s++;
+        *ptr = '\0';
+        ptr++;
         n--;
     }
 }

@@ -1,3 +1,4 @@
+#include "libft.h"
 char *ft_strchr(const char *s, int c)
 {
     //locating the first occurrence of c in the string pointed to by s

@@ -1,6 +1,4 @@
-#include<stdlib.h>
-#include<stdio.h>
-#include <string.h>
+#include "libft.h"
 void *ft_memset(void *b, int c, size_t len)
 {
     //Cast the first argument to an unsigned char
@@ -13,13 +11,4 @@ void *ft_memset(void *b, int c, size_t len)
         len--;
     }
     return b;
-}
-
-int main()
-{
-    printf("%s",ft_memset(strdup("saifeddine"),'&',3));
-
-
-
-    return 0;
 }
