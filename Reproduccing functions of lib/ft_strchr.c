@@ -9,6 +9,8 @@ char *ft_strchr(const char *s, int c)
             return (char*)s;
         s++;
     }
+    if(*s == c)
+        return (char*)s;
     //return NULL if the character does not appear in the string
     return NULL;
 }
