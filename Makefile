@@ -8,7 +8,7 @@ all: $(NAME)
 $(NAME): obj
 	ar rc $(NAME) $(OBJ)
 obj:
-	cc -c $(SRC) $(CFLAGS)
+	cc $(CFLAGS) -c $(SRC)
 clean:
 	rm -f $(OBJ)
 fclean: clean
