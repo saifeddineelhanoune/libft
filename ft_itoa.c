@@ -1,47 +1,65 @@
-#include"libft.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sel-hano <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/22 19:26:50 by sel-hano          #+#    #+#             */
+/*   Updated: 2022/10/22 19:27:04 by sel-hano         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-static int ft_nbrlen(int c)
+#include "libft.h"
+
+static int	ft_nbrlen(int n)
 {
-    int    i;
+	int	i;
 
-    i = 0;
-    if (c < 10 && c >= 0)
-        i++;
-    while (c)
-    {
-        c /= 10;
-        i++;
-    }
-    return (i);
+	i = 0;
+	while (n != 0)
+	{
+		n /= 10;
+		i++;
+	}
+	return (i);
 }
 
-static char *ft_nbrfill(char *dst, unsigned int n, int len)
+static void	ft_fill(char *dst, int nb, int len)
 {
-    *(dst + len) = '\0';
-    len--;
-    while (n >= 0 && len >= 0)
-    {
-        *(dst + len) = (n % 10) + 48;
-        n /= 10;
-        len--;
-    }
-    if (len == 0)
-        *(dst + len) = '-';
-    return (dst);
+	unsigned int	n;
+
+	if (nb < 0)
+		n = nb * -1;
+	else
+		n = nb;
+	dst[len] = '\0';
+	while (n != 0 || len == 1)
+	{
+		dst[--len] = (char)(n % 10 + 48);
+		n /= 10;
+	}
 }
 
-char *ft_itoa(int n)
+char	*ft_itoa(int n)
 {
-    char *result;
-    int nbrl;
+	int		s;
+	int		len;
+	char	*output;
 
-    nbrl = ft_nbrlen(n);
-    if (n < 0)
-        nbrl++;
-    result = (char *)malloc(sizeof(char) * (nbrl + 1));
-    if (result)
-    {
-        result = ft_nbrfill(result, n, nbrl);
-    }
-    return (result);
+	s = 0;
+	if (n < 0)
+		s++;
+	len = ft_nbrlen(n) + s;
+	if (!len)
+		len++;
+	output = (char *) malloc(len * sizeof(char) + 1);
+	if (output)
+	{
+		ft_fill(output, n, len);
+		if (s)
+			output[0] = '-';
+		return (output);
+	}
+	return (NULL);
 }

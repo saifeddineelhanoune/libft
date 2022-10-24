@@ -1,5 +1,5 @@
 NAME = libft.a
-SRC = $(shell ls ft_*.c)
+SRC = $(shell ls *.c)
 OBJ = $(SRC:.c=.o)
 CFLAGS += -Wall -Werror -Wextra 
 

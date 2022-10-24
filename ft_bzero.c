@@ -1,13 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sel-hano <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/22 19:28:20 by sel-hano          #+#    #+#             */
+/*   Updated: 2022/10/22 19:30:43 by sel-hano         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
-void ft_bzero(void *s, size_t n)
+
+void	ft_bzero(void *s, size_t n)
 {
-    //cast from void* to char*
-    char *ptr = (char*)s;
-    //fill write n zeroed bytes to the string s
-    while(n > 0)
-    {
-        *ptr = 0;
-        ptr++;
-        n--;
-    }
+	char *ptr;
+
+	ptr = (char*)s;
+	while (n > 0)
+	{
+		*ptr = 0;
+		ptr++;
+		n--;
+	}
 }

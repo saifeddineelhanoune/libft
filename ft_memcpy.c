@@ -15,3 +15,11 @@ void *ft_memcpy(void *dst, const void *src, size_t n)
     }
     return dst;
 }
+// int main()
+// {
+
+//     char s[] = "heo";
+//     char d[] = "word";
+//     printf("%s\n", (char )ft_memcpy(d, s, 2));
+//    printf("%s", (char)memcpy(d, s, 1));
+// }
