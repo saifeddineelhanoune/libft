@@ -1,38 +1,75 @@
-#include"libft.h"
-static int ft_word_count(const char *s, int c)
+static int	ft_rows_count(char *s, char c)
 {
-	int count;
+	int	count;
 
-	count  = 0;
-	while(*s)
+	count = 0;
+	while (*s)
 	{
-		if(*s != c && (*(s + 1) == c || !*(s + 1)))
+		if ((*s != c) && (*(s + 1) == c || !*(s + 1)))
 			count++;
 		s++;
 	}
-	return count;	
+	return (count);
 }
-static char **ft_allocation(char **ptr,char *src)
-{
-	int rows;
-	int cols;
-	int i;
 
-	rows = ft_word_count(src);
-	cols = ft_strlen((char*)src);
-	ptr = (char**)malloc(sizeof(char) * rows);
-	i = 0;
-	while (i < rows)
+static char	*ft_strtoken(char *s, char c)
+{
+	static char	*buffer;
+	char		*token;
+
+	if (!buffer)
+		buffer = s;
+	if (!*buffer)
+		return (NULL);
+	token = buffer;
+	while (*buffer && *buffer != c)
+		buffer++;
+	while (*buffer == c)
 	{
-		ptr[i] = (char *)malloc(cols * sizeof(char));
+		*buffer = '\0';
+		buffer++;
+	}
+	return (token);
+}
+
+static void	ft_memclear(char **strs, int last)
+{
+	int	i;
+
+	i = 0;
+	while (i < last)
+	{
+		free(strs[i]);
 		i++;
 	}
-	i = 0;
-	while(ptr[i])
+	free(strs);
+	strs = NULL;
 }
-static char *ft_skip(char *str, char c)
+
+char	**ft_split(char const *s, char c)
 {
-	while(*str == c)
-		str++;
-	return str;
+	char	*token;
+	int		rows_count;
+	char	**ptr;
+	int		i;
+
+	while (*s == c && *s)
+		s++;
+	rows_count = ft_rows_count((char *)s, c);
+	token = ft_strtoken(ft_strdup(s), c);
+	ptr = malloc((rows_count + 1) * sizeof(char *));
+	i = 0;
+	if (!ptr)
+		return (free(ptr), NULL);
+	while (token)
+	{
+		ptr[i] = malloc(ft_strlen(token) * sizeof(char) + 1);
+		if (!ptr[i])
+			return (ft_memclear(ptr, i), NULL);
+		ft_strlcpy(ptr[i], token, ft_strlen(token) + 1);
+		token = ft_strtoken(NULL, c);
+		i++;
+	}
+	ptr[i] = NULL;
+	return (ptr);
 }
