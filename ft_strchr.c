@@ -1,16 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sel-hano <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/01 02:48:36 by sel-hano          #+#    #+#             */
+/*   Updated: 2022/11/01 02:49:28 by sel-hano         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
-char *ft_strchr(const char *s, int c)
+char 	*ft_strchr(const char *s, int c)
 {
-    //locating the first occurrence of c in the string pointed to by s
+
     while(*s)
     {
         if(*s == c)
-        //return a pointer to the located character
-            return (char*)s;
+            return ((char *)s);
         s++;
     }
     if(*s == c)
-        return (char*)s;
-    //return NULL if the character does not appear in the string
-    return NULL;
+        return (char *)s;
+    return (NULL);
 }
