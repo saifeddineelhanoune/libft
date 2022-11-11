@@ -13,7 +13,7 @@ char *ft_strnstr(const char *haystack, const char *needle, size_t len)
 	{
 		while (*(haystack + i) && len)
 		{
-			if(*(haystack + i) == *needle && countstr+i <= len &&
+			if(*(haystack + i) == *needle && countstr <= len &&
 				!ft_strncmp((haystack + i),needle,countstr))
 			{
 				return ((char*)(haystack + i));
