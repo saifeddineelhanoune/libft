@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include"libft.h"
+
 static int	ft_rows_count(char *s, char c)
 {
 	int	count;
