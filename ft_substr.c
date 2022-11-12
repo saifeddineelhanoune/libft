@@ -16,7 +16,7 @@ char *ft_substr(char const *s, unsigned int start, size_t len)
         return (NULL);
 	if(sub)
 	{
-		ft_memmove(sub, &s[start], len);
+		ft_memcpy(sub, &s[start], len);
 		sub[len] = '\0';
     	return (sub);
 	}

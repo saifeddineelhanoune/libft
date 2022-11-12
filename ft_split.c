@@ -48,7 +48,6 @@ static void	ft_memclear(char **strs, int last)
 	strs = NULL;
 }
 
-
 char	**ft_split(char const *s, char c)
 {
 	char	*token;

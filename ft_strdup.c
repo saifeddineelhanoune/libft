@@ -11,14 +11,16 @@
 /* ************************************************************************** */
 
 #include"libft.h"
-char *ft_strdup(const char *s1)
+
+char	*ft_strdup(const char *s1)
 {
-    size_t l_str;
-    char *ptr;
-	
+	size_t	l_str;
+	char	*ptr;
+
 	l_str = ft_strlen(s1) + 1;
 	ptr = malloc(sizeof(char) * l_str);
-	if(ptr)
-		ptr = ft_memcpy(ptr, s1, l_str);
-    return (ptr);
+	if (!ptr)
+		return (NULL);
+	ptr = ft_memcpy(ptr, s1, l_str);
+	return (ptr);
 }
