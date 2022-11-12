@@ -19,8 +19,10 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 
 	destination = (char *)dst;
 	source = (char *)src;
-    if (((char *)dst) == NULL && ((char *)src) == NULL)
+    if (((unsigned char *)dst) == NULL && ((unsigned char *)src) == NULL)
         return (0);
+	if (dst == src)
+		return (dst);
     while (n > 0)
     {
         *destination = *source;
@@ -30,4 +32,3 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
     }
     return (dst);
 }
-
