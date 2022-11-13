@@ -70,7 +70,7 @@ char	**ft_split(char const *s, char c)
 	sp.rows_count = ft_rows_count((char *)s, c);
 	sp.token = ft_strtoken(ft_strdup(s), c);
 	sp.ptr = malloc((sp.rows_count + 1) * sizeof(char *));
-	if (!sp.ptr)
+	if (!sp.ptr || !s) 
 		return (free(sp.ptr), NULL);
 	sp.i = 0;
 	while (sp.token)
@@ -85,15 +85,15 @@ char	**ft_split(char const *s, char c)
 	sp.ptr[sp.i] = NULL;
 	return (sp.ptr);
 }
-int main ()
-{
-	char s[] = "      split       this for   me  !       ";
-	char **sp = ft_split("xxxxxxxxhello!", 120);
-	int i = 0;
-	while(sp[i])
-	{
-		printf("%s\n",sp[i]);
-		i++;
-	}
-	return 0;
-}
+// int main ()
+// {
+// 	char s[] = "      split       this for   me  !       ";
+// 	char **sp = ft_split("xxxxxxxxhello!", 120);
+// 	int i = 0;
+// 	while(sp[i])
+// 	{
+// 		printf("%s\n",sp[i]);
+// 		i++;
+// 	}
+// 	return 0;
+// }
