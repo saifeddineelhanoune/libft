@@ -1,10 +1,22 @@
-// #include"libft.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sel-hano <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/13 19:30:14 by sel-hano          #+#    #+#             */
+/*   Updated: 2022/11/13 19:30:19 by sel-hano         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-// t_list *ft_lstlast(t_list *lst)
+#include"libft.h"
+
+// t_list	*ft_lstlast(t_list *lst)
 // {
-// 	if(!lst)
+// 	if (!lst)
 // 		return (NULL);
-// 	while(lst->next)
+// 	while (lst->next)
 // 		lst = lst->next;
 // 	return (lst);
 // }

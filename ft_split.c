@@ -1,4 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sel-hano <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/13 19:48:22 by sel-hano          #+#    #+#             */
+/*   Updated: 2022/11/13 19:48:26 by sel-hano         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include"libft.h"
+#include<stdio.h>
 
 static int	ft_rows_count(char *s, char c)
 {
@@ -50,7 +63,7 @@ static void	ft_memclear(char **strs, int last)
 
 char	**ft_split(char const *s, char c)
 {
-	t_split sp;
+	t_split	sp;
 
 	while (*s == c && *s)
 		s++;
@@ -71,4 +84,17 @@ char	**ft_split(char const *s, char c)
 	}
 	sp.ptr[sp.i] = NULL;
 	return (sp.ptr);
+}
+
+int main()
+{
+	char  str[] =  "hey please split me     !";
+	char **sp = ft_split(str,' ');
+	int i = 0;
+	while(sp[i])
+	{
+		printf("%s\n",sp[i]);
+		i++;
+	}
+	return 0;
 }

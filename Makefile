@@ -1,16 +1,17 @@
 NAME = libft.a
-SRC = $(shell ls ft_*.c | grep -v "bonus.c")
-BONUSSRC = $(shell ls ft_*_bonus.c)
+SRC = $(shell ls ft_*.c)
+CC = cc
+HEADER = libft.h
 OBJ = $(SRC:.c=.o)
-BONUSOBJ = $(BONUSSRC:.c=.o)
 CFLAGS += -Wall -Werror -Wextra 
 
-all: $(NAME)
+all: $(NAME) $(HEADER)
 	@echo "Compiling Files .c ...."
+ 
 $(NAME): obj
 	ar rc $(NAME) $(OBJ)
 obj:
-	cc $(CFLAGS) -c $(SRC)
+	$(CC) $(CFLAGS) -c $(SRC)
 clean:
 	rm -f $(OBJ)
 fclean: clean

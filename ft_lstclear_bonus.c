@@ -1,6 +1,18 @@
-// #include"libft.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sel-hano <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/13 19:27:46 by sel-hano          #+#    #+#             */
+/*   Updated: 2022/11/13 19:27:51 by sel-hano         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-// void ft_lstclear(t_list **lst, void (*del)(void*))
+#include"libft.h"
+
+// void	ft_lstclear(t_list **lst, void (*del)(void*))
 // {
 // 	t_list *node;
 	
