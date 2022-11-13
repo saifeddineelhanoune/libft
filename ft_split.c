@@ -85,11 +85,10 @@ char	**ft_split(char const *s, char c)
 	sp.ptr[sp.i] = NULL;
 	return (sp.ptr);
 }
-
-int main()
+int main ()
 {
-	char  str[] =  "hey please split me     !";
-	char **sp = ft_split(str,' ');
+	char s[] = "      split       this for   me  !       ";
+	char **sp = ft_split("xxxxxxxxhello!", 120);
 	int i = 0;
 	while(sp[i])
 	{
